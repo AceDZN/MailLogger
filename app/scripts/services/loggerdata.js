@@ -9,15 +9,30 @@
  */
 angular.module('mailLoggerApp')
   .factory('LoggerData', function () {
-    // Service logic
-    // ...
+      // Service logic
+      // ...
 
-    var logs = [];
+      var logs = [];
 
-    // Public API here
-    return {
-      getLogs: function () {
-        return logs;
-      }
-    };
-  });
+      // Public API here
+      return {
+        getLogs: function () {
+          return logs;
+        },
+        addLog: function(item){
+          var newLog = {};
+          newLog.timestamp = new Date().toLocaleString();
+          newLog.email = item;
+          newLog.action = "added";
+          logs.unshift(newLog);
+        },
+        removeItemLog: function(item){
+          console.log(item);
+          var newLog = {};
+          newLog.timestamp = new Date().toLocaleString();
+          newLog.email = item.email;
+          newLog.action = "removed";
+          logs.unshift(newLog);
+        }
+      };
+    });
