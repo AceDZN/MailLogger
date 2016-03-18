@@ -13,8 +13,7 @@ describe('Directive: AceDZNLink', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<-ace-d-z-n-link></-ace-d-z-n-link>');
+    element = angular.element('<acedzn-link></acedzn-link>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the AceDZNLink directive');
   }));
 });

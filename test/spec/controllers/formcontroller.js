@@ -4,20 +4,20 @@ describe('Controller: FormcontrollerCtrl', function () {
 
   // load the controller's module
   beforeEach(module('mailLoggerApp'));
+  var controller, scope;
 
-  var FormcontrollerCtrl,
-    scope;
+  beforeEach(inject(function($controller, $rootScope){
+          scope = $rootScope.$new();
+          console.log('scope1', scope);
+          controller = $controller('FormCtrl', {
+              $scope: scope
+          });
+      }));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    FormcontrollerCtrl = $controller('FormcontrollerCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(FormcontrollerCtrl.awesomeThings.length).toBe(3);
-  });
+      describe('should have an empty string for start', function() {
+          it('sets variables ', function() {
+              expect(scope).toBeDefined();
+              expect(scope.newListItem).toEqual("");
+          });
+      });
 });

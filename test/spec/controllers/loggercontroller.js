@@ -5,19 +5,19 @@ describe('Controller: LoggercontrollerCtrl', function () {
   // load the controller's module
   beforeEach(module('mailLoggerApp'));
 
-  var LoggercontrollerCtrl,
+  var LoggerCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    LoggercontrollerCtrl = $controller('LoggercontrollerCtrl', {
+    LoggerCtrl = $controller('LoggerCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(LoggercontrollerCtrl.awesomeThings.length).toBe(3);
+  it('should be an empty array of logs', function () {
+    expect(scope.logs.length).toBe(0);
   });
 });

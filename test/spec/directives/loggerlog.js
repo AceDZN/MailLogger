@@ -4,7 +4,6 @@ describe('Directive: LoggerLog', function () {
 
   // load the directive's module
   beforeEach(module('mailLoggerApp'));
-
   var element,
     scope;
 

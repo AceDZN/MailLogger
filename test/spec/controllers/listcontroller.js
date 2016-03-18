@@ -4,20 +4,19 @@ describe('Controller: ListcontrollerCtrl', function () {
 
   // load the controller's module
   beforeEach(module('mailLoggerApp'));
+  var controller, scope;
 
-  var ListcontrollerCtrl,
-    scope;
+  beforeEach(inject(function($controller, $rootScope){
+          scope = $rootScope.$new();
+          controller = $controller('ListCtrl', {
+              $scope: scope
+          });
+      }));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    ListcontrollerCtrl = $controller('ListcontrollerCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(ListcontrollerCtrl.awesomeThings.length).toBe(3);
-  });
+      describe('should have 2 items to start', function() {
+          it('sets variables ', function() {
+              expect(scope).toBeDefined();
+              expect(scope.list.length).toBe(2);
+          });
+      });
 });
