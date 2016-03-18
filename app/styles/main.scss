@@ -1,5 +1,4 @@
-// bower:scss
-// endbower
+
 @mixin radius($px) {
   border-radius: $px;
   -moz-border-radius: $px;
@@ -41,6 +40,9 @@ body{
   hr{
     margin:0;
   }
+  h5{
+    margin:10px 0px;
+  }
 }
 
 form.editor-form{
@@ -50,8 +52,20 @@ form.editor-form{
   .form-control.editor-input{
     width:80%;
   }
+  button.input-group-addon.editor-add{
+    width:20%;
+    height: 34px;
+  }
 }
 
+.ng-dirty.ng-touched{
+  &.ng-invalid{
+    @include box-shadow(inset 0 0 3px rgba(255, 0, 0, 0.5));
+  }
+  &.ng-valid{
+    @include box-shadow(inset 0 0 3px rgba(0, 128, 0, 0.5));
+  }
+}
 
 ul.list_wrapper{
   padding:0;
@@ -69,10 +83,69 @@ ul.list_wrapper{
     border:none;
     line-height: 32px;
     border-top:1px solid #ddd;
+    .btn-danger{
+      color: #fff;
+      background-color: #d9534f;
+      border-color: #d43f3a;
+      height: 25px;
+      margin-right: 5px;
+      line-height: 20px;
+      padding: 0 20px;
+    }
+    .email{
+      font-weight:600;
+    }
+    .action{
+      font-weight:600;
+      &.added{
+        color:green;
+      }
+      &.removed{
+        color:red;
+      }
+    }
+    .date{
+      background: #EEEEEE;
+      margin-right: 5px;
+      line-height: 20px;
+      display: inline-block;
+      float: right;
+      padding: 0 5px 0 5px;
+      text-align: center;
+      @include radius(0 0 10px 10px);
+      font-size: 10px;
+    }
+    &.no_results{
+      text-align: center;
+      img{
+        margin: 30px auto 0;
+        width: 90px;
+      }
+    }
+  }
+  li:only-child,li:last-child{
+    border-bottom:none;
+  }
+  &::-webkit-scrollbar{
+    width: 6px; }
+  &::-webkit-scrollbar-thumb {
+    @include radius(10px 0 0 10px);
+    border: 1px solid #000;
+    border-right:0px solid #fff;
+    /* should match background, can't be transparent */
+    background-color: #c0c0c0;
   }
 }
 .logger_wrap{
   background: rgba(0, 0, 0, 0.17);
+  .list_wrapper::-webkit-scrollbar{
+    width: 6px; }
+  .list_wrapper::-webkit-scrollbar-thumb {
+    @include radius(5px 0 0 5px);
+    border: 1px solid #000;
+    border-right: 0px solid #fff;
+    background-color: #fdfdfd;
+  }
 }
 
 /* Responsive: Portrait tablets and up */
@@ -86,5 +159,9 @@ ul.list_wrapper{
   .container{
     padding-left: 15px;
     padding-orange: 15px;
+  }
+  .date{
+
+    padding: 0 20px 0 20px;
   }
 }

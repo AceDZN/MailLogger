@@ -2,8 +2,16 @@
 <section class="logger_wrap">
   <h5 class="text-left">Logger</h5>
   <ul class="list_wrapper logs">
+    <li ng-hide="logs.length" class="no_results">
+      <h5 class="text-center">
+        Sorry, No Logs Here!
+      </h5>
+    </li>
     <li class="" ng-repeat="log in logs">
-      {{log}}
+      <span class="email">{{log.email}}</span>
+       was 
+      <span class="action {{log.action}}">{{log.action}}</span>
+      <span class="date">{{log.timestamp}}</span>
     </li>
   </ul>
 </section>

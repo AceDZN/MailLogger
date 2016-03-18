@@ -1,9 +1,10 @@
 <section class="form_wrap">
   <h5 class="text-left">Add New Email</h5>
-  <form class="editor-form" name="addNewForm" novalidate>
+  <form class="editor-form" name="addNewForm" novalidate ng-submit="addNewForm.$valid && addItem()">
       <div class="input-group">
+        <span class="input-group-addon "><img src="./images/mail.svg" width="15" height="15" /></span>
         <input type="email" class="form-control editor-input" required placeholder="Add New Email" ng-model="newListItem">
-        <button type="submit" ng-disabled="!addNewForm.$valid" class="btn btn-primary editor-add ">Send</button>
+        <button type="submit" ng-disabled="!addNewForm.$valid" class="input-group-addon btn btn-primary editor-add ">Send</button>
       </div>
   </form>
 </section>

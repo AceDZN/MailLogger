@@ -2,13 +2,19 @@
 <section class="emails_wrap">
 <h5 class="text-left">Email List</h5>
   <ul class="list_wrapper">
+    <li ng-hide="list.length" class="no_results">
+      <img src="./images/sad.svg" />
+      <h2 class="text-center">
+        Nothing Here
+      </h2>
+    </li>
     <li class="row" ng-repeat="line in list">
       <div class="col-xs-8 col-sm-9">
         <img ng-src="{{line.avatar}}" />
         <span>{{line.email}}</span>
       </div>
       <div class="col-xs-4 col-sm-3 text-right">
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-danger" ng-click="removeItem(line)">Delete</button>
       </div>
     </li>
   </ul>
