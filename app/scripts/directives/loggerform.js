@@ -11,7 +11,7 @@ angular.module('mailLoggerApp')
     return {
       templateUrl: '../../views/loggerform-directive.html',
       restrict: 'E',
-      controller: 'FormcontrollerCtrl',
+      controller: 'FormCtrl',
       controllerAs: 'form'
     };
   });

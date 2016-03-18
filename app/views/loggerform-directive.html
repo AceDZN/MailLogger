@@ -1,4 +1,9 @@
 <section class="form_wrap">
   <h5 class="text-left">Add New Email</h5>
-  
+  <form class="editor-form" name="addNewForm" novalidate>
+      <div class="input-group">
+        <input type="email" class="form-control editor-input" required placeholder="Add New Email" ng-model="newListItem">
+        <button type="submit" ng-disabled="!addNewForm.$valid" class="btn btn-primary editor-add ">Send</button>
+      </div>
+  </form>
 </section>

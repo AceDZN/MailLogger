@@ -1,5 +1,18 @@
 // bower:scss
 // endbower
+@mixin radius($px) {
+  border-radius: $px;
+  -moz-border-radius: $px;
+  -webkit-border-radius: $px;
+}
+@mixin box-shadow($shadowParams){
+  box-shadow: $shadowParams;
+  -moz-box-shadow: $shadowParams;
+  -webkit-box-shadow: $shadowParams;
+}
+
+
+*:active,*:focus {outline: none!important;}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -8,82 +21,70 @@
   padding: 0.2em 0;
 }
 
-body {
-  padding: 0;
+body{
+  background-color:#EEEEEE;
+}
+.container{
+  max-width: 600px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+.main_wrapper{
+  @include radius(5px);
+  background-color:#FFF;
+  overflow: hidden;
+  margin-top:0px;
+  section{
+    padding:10px 5px 20px;
+  }
+  hr{
+    margin:0;
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+form.editor-form{
+  .input-group{
+    width:100%;
+  }
+  .form-control.editor-input{
+    width:80%;
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
 
-  p + h4 {
-    margin-top: 28px;
+ul.list_wrapper{
+  padding:0;
+  margin:0;
+  min-height:200px;
+  max-height:200px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  &.logs{
+    min-height:100px;
   }
+  li{
+    list-style: none;
+    padding: 0 0 2px 0;
+    border:none;
+    line-height: 32px;
+    border-top:1px solid #ddd;
+  }
+}
+.logger_wrap{
+  background: rgba(0, 0, 0, 0.17);
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  .main_wrapper{
+    margin-top:30px;
+    section{
+      padding:10px 20px 20px;
+    }
   }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  .container{
+    padding-left: 15px;
+    padding-orange: 15px;
   }
 }

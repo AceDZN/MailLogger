@@ -8,10 +8,7 @@
  * Controller of the mailLoggerApp
  */
 angular.module('mailLoggerApp')
-  .controller('ListcontrollerCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ListCtrl', function ($scope, ListData) {
+    $scope.list = ListData.getListItems();
+
   });

@@ -11,7 +11,7 @@ angular.module('mailLoggerApp')
     return {
       templateUrl: '../../views/loggerlist-directive.html',
       restrict: 'E',
-      controller: 'ListcontrollerCtrl',
+      controller: 'ListCtrl',
       controllerAs: 'list'
     };
   });

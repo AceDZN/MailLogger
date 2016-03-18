@@ -8,10 +8,6 @@
  * Controller of the mailLoggerApp
  */
 angular.module('mailLoggerApp')
-  .controller('LoggercontrollerCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+ .controller('LoggerCtrl', function ($scope,LoggerData) {
+   $scope.logs = LoggerData.getLogs();
+ });

@@ -11,7 +11,7 @@ angular.module('mailLoggerApp')
     return {
       templateUrl: '../../views/loggerlog-directive.html',
       restrict: 'E',
-      controller: 'LoggercontrollerCtrl',
+      controller: 'LoggerCtrl',
       controllerAs: 'logger'
     };
   });
