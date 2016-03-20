@@ -10,6 +10,12 @@
   -webkit-box-shadow: $shadowParams;
 }
 
+@mixin animate($params){
+  -webkit-transition: $params;
+  -moz-transition: $params;
+  -o-transition: $params;
+  transition: $params;
+}
 
 *:active,*:focus {outline: none!important;}
 
@@ -19,7 +25,6 @@
   color: #000;
   padding: 0.2em 0;
 }
-
 body{
   background-color:#EEEEEE;
 }
@@ -38,7 +43,7 @@ body{
   overflow: hidden;
   margin-top:0px;
   section{
-    padding:10px 5px 20px;
+    padding:10px 20px 20px;
   }
   hr{
     margin:0;
@@ -51,6 +56,10 @@ body{
 form.editor-form{
   .input-group{
     width:100%;
+    img{
+      width:15px;
+      height:15px
+    }
   }
   .form-control.editor-input{
     width:80%;
@@ -73,12 +82,12 @@ form.editor-form{
 ul.list_wrapper{
   padding:0;
   margin:0;
-  min-height:200px;
-  max-height:200px;
+  height:200px;
   overflow-y:auto;
   overflow-x:hidden;
   &.logs{
     min-height:100px;
+    max-height:100px;
   }
   li{
     list-style: none;
@@ -86,14 +95,37 @@ ul.list_wrapper{
     border:none;
     line-height: 32px;
     border-top:1px solid #ddd;
+
     .btn-danger{
+      float:right;
       color: #fff;
       background-color: #d9534f;
       border-color: #d43f3a;
       height: 25px;
-      margin-right: 5px;
+      margin-top:5px;
       line-height: 20px;
-      padding: 0 20px;
+      padding: 0 10px;
+
+      &.ng-move,
+      &.ng-enter,
+      &.ng-leave {
+        transition:all linear 0.5s;
+
+      }
+
+      &.ng-leave.ng-leave-active,
+      &.ng-move,
+      &.ng-enter {
+        opacity:0;
+        max-height:0;
+      }
+      &.ng-leave,
+      &.ng-move.ng-move-active,
+      &.ng-enter.ng-enter-active {
+        opacity:1;
+        max-height:100px;
+      }
+
     }
     .email{
       font-weight:600;
@@ -122,10 +154,50 @@ ul.list_wrapper{
       text-align: center;
       img{
         margin: 30px auto 0;
-        width: 90px;
+        width: 50px;
       }
     }
+    &.ng-move,
+    &.ng-enter,
+    &.ng-leave {
+      transition:all linear 0.5s;
+
+    }
+
+    &.ng-leave.ng-leave-active,
+    &.ng-move,
+    &.ng-enter {
+      left:-500px;
+      opacity:0;
+      max-height:0;
+    }
+    &.no_results.ng-leave.ng-leave-active,
+    &.no_results.ng-move,
+    &.no_results.ng-enter {
+      opacity:0;
+    }
+    &.ng-leave,
+    &.ng-move.ng-move-active,
+    &.ng-enter.ng-enter-active {
+      opacity:1;
+      max-height:100px;
+      left:0px;
+    }
+
+    .avatar{
+      
+      margin-top:5px;
+      opacity:1;
+      margin-right:5px;
+      height: 25px;
+      float:right;
+      @include radius(5px);
+
+    }
   }
+
+
+
   li:only-child,li:last-child{
     border-bottom:none;
   }
@@ -150,6 +222,11 @@ ul.list_wrapper{
     background-color: #fdfdfd;
   }
 }
+
+
+
+
+
 .ace-logo{
   text-align:center;
 }

@@ -4,17 +4,16 @@
   <ul class="list_wrapper">
     <li ng-hide="list.length" class="no_results">
       <img src="./images/sad.svg" />
-      <h2 class="text-center">
-        Nothing Here
-      </h2>
+      <h2 class="text-center">Nothing Here</h2>
+      <h5>Try to add something</h5>
     </li>
-    <li class="row" ng-repeat="line in list">
+    <li class="row" ng-repeat="line in list" ng-mouseover="showOptions = ! showOptions" ng-mouseout="showOptions = ! showOptions">
       <div class="col-xs-8 col-sm-9">
-        <img ng-src="{{line.avatar}}" />
         <span>{{line.email}}</span>
       </div>
       <div class="col-xs-4 col-sm-3 text-right">
-        <button type="button" class="btn btn-danger" ng-click="removeItem(line)">Delete</button>
+        <button ng-show="showOptions" type="button" class="btn btn-danger" ng-click="removeItem(line)">Delete</button>
+        <img class="avatar" ng-show="showOptions" ng-src="{{getAvatar(line.email)}}" />
       </div>
     </li>
   </ul>
