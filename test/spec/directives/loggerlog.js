@@ -1,7 +1,6 @@
 'use strict';
 
 describe('Directive: LoggerLog', function () {
-
   // load the directive's module
   beforeEach(module('mailLoggerApp'));
   var element,
@@ -12,8 +11,7 @@ describe('Directive: LoggerLog', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<-logger-log></-logger-log>');
+    element = angular.element('<logger-log></logger-log>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the LoggerLog directive');
   }));
 });

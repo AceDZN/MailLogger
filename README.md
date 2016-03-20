@@ -7,13 +7,14 @@ Component created by [Alex Sindalovsky](http://www.acedzn.com)
 
 
 ####Checkout#####
-Checkout this repo, install dependencies, then start the gulp process with the following:
+Checkout this repo, install dependencies, then start the grunt process with the following:
 
 ```
 	> git clone git@github.com:AceDZN/MailLogger.git
-	> cd comments_widget
+	> cd MailLogger
 	> npm install
 	> grunt
+  > grunt serve
 ```
 
 

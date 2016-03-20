@@ -11,7 +11,6 @@ angular.module('mailLoggerApp')
   .factory('ListData', function (LoggerData) {
     // Service logic
     // ...
-
     var listData = [
       {email:"alex@acedzn.com", id:1},
       {email:"design@acedzn.com", id:2}
@@ -27,9 +26,11 @@ angular.module('mailLoggerApp')
           id: listData.length+1
         }
         listData.push(newItem);
+        return this.getListItems();
       },
       removeListItem: function (index) {
         index > -1 && listData.splice(index, 1);
+        return this.getListItems();
       }
     };
   });
