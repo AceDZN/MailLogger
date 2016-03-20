@@ -8,7 +8,7 @@
  * Factory in the ngLoggerApp.
  */
 angular.module('mailLoggerApp')
-  .factory('ListData', function (LoggerData) {
+  .factory('ListData', function () {
     // Service logic
     // ...
     var listData = [
@@ -24,12 +24,12 @@ angular.module('mailLoggerApp')
         var newItem = {
           email: item,
           id: listData.length+1
-        }
+        };
         listData.push(newItem);
         return this.getListItems();
       },
       removeListItem: function (index) {
-        index > -1 && listData.splice(index, 1);
+        if (index > -1) {listData.splice(index, 1);}
         return this.getListItems();
       }
     };
